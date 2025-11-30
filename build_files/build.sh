@@ -18,6 +18,7 @@ INCLUDED_PACKAGES=(
 	fd
 	ripgrep
 	emacs
+	mozilla-fira-mono-fonts.noarch
 )
 
 # remove excluded
