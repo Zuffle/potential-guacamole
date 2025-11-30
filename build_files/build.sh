@@ -9,8 +9,30 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+#EXCLUDED-PACKAGES=(
+#
+#)
+
+INCLUDED_PACKAGES=(
+	tmux
+	fd
+	ripgrep
+	emacs
+)
+
+# remove excluded
+# dnf5 remove --quiet -y "${EXCLUDED_PACKAGES[@]}"
+
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y "${INCLUDED_PACKAGES[@]}"
+
+
+# CLEANUP
+# ----------------------------------------------------
+dnf5 autoremove && dnf5 clean all
+rm -f /var/log/dnf*.log
+rm -rf /var/lib/dnf
+rm -rf /var/lib/alternatives
 
 # Use a COPR Example:
 #
