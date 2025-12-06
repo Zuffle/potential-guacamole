@@ -17,7 +17,7 @@ INCLUDED_PACKAGES=(
 	tmux
 	fd
 	ripgrep
-	emacs
+	# emacs
 	fira-code-fonts
 )
 
